@@ -1,7 +1,12 @@
 const mongoose = require("mongoose");
 
 const Topic = mongoose.Schema({
-  title: String,
+  title: {
+    type: String,
+    required: [true, "A topic must have a title"],
+    unique: true,
+    trim: true,
+  },
   content: String,
   percentage: Number,
   user: {

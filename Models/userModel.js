@@ -2,7 +2,11 @@ const mongoose = require("mongoose");
 
 const UserData = new mongoose.Schema(
   {
-    username: String,
+    username: {
+      type: String,
+      required: [true, "A user must have a name"],
+      trim: true,
+    },
     topics: [
       {
         type: mongoose.Schema.Types.ObjectId,
